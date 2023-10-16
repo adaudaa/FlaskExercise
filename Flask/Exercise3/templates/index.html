@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <h1>Register</h1>
+    <form method="POST" action="/register">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="organization">Select an organization:</label>
+            <select name="organization" class="form-control" required>
+                <option value="">Select an organization</option>
+                {% for org in organizations %}
+                    <option value="{{ org }}">{{ org }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Register</button>
+    </form>
+{% endblock %}
